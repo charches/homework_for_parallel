@@ -25,14 +25,16 @@ void to_lower(string& str)
 }
 Input::Input(const string& filename)
 {
-	ifstream file;
-	file.open(filename);
-	if (file)
+	ifstream file(filename);
+	if (file.is_open())
 	{
 		string line;
 		while (getline(file, line))
 		{
-			stringstream iss(line);
+			size_t pos = line.find("#");
+			if (pos != string::npos)
+				    line = line.substr(0, pos);
+			stringstream iss(line);;
 			string type, parameter;
 			iss >> type >> parameter;
 			to_lower(type);
