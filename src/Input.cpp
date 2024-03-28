@@ -3,20 +3,11 @@
 #include <fstream>
 #include <sstream>
 #include <cctype>
+#include "../headers/Input.h"
 
 using namespace std;
 
-class Input {
-	public:
-		string cal;
-		string mat_type;
-		int nr = 0, nc = 0;
-		int mat_prt = 0;
-
-		Input(){}
-		Input(const string& filename);
-		friend ostream& operator<<(ostream& my_cout, const Input& input);
-};
+Input::Input(){}
 
 void to_lower(string& str)
 {
@@ -65,14 +56,5 @@ ostream& operator<<(ostream& my_cout, const Input& input)
 	my_cout << "nrows: " << input.nr << endl;
 	my_cout << "ncols: " << input.nc << endl;
 	return my_cout;
-}
-
-int main()
-{
-	string filename;
-	cin >> filename;
-	Input input(filename);
-	cout << input;
-	return 0;
 }
 

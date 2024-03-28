@@ -1,35 +1,11 @@
 #include <iostream>
 #include <cstdlib>
 #include <limits>
+#include "../headers/Matrix.h"
 
 using namespace std;
 
-class Matrix {
-private:
-	int nr = 0;
-	int nc = 0;
-public:
-	double** d = nullptr;
-
-	Matrix() {}
-	Matrix(const int& nrows, const int& ncols, const string& function = "zero");
-	Matrix(const Matrix& other);
-	~Matrix();
-
-	int nrows(void) const;
-	int ncols(void) const;
-	void set_zero();
-	double maxi();
-	double mini();
-
-	Matrix& operator=(const Matrix& other);
-	Matrix& operator+=(const Matrix& other);
-	Matrix& operator-=(const Matrix& other);
-	double& operator()(const int& r, const int& c);
-	friend Matrix operator+(const Matrix& A, const Matrix& B);
-	friend Matrix operator-(const Matrix& A, const Matrix& B);
-	friend ostream& operator<<(ostream& os, const Matrix& A);
-};
+Matrix::Matrix(){}
 
 Matrix::Matrix(const int& nrows, const int& ncols, const string& function)
 {
@@ -222,35 +198,4 @@ ostream& operator<<(ostream& os, const Matrix& A)
 	return os;
 }
 
-int main()
-{
-	Matrix A(3, 3), B(3, 3, "random"), C(B);
-	cout << "三个矩阵分别为：" << endl;
-	cout << A << B << C << endl;
 
-	cout << "输出行数列数:" << endl;
-	cout << A.nrows() << " " << A.ncols() << endl << endl;
-
-	cout << "置于0：" << endl;
-	C.set_zero();
-	cout << C;
-
-	cout << "求最大最小值：" << endl;
-	cout << B.maxi() << " " << B.mini() << endl << endl;
-
-	cout << "赋值：" << endl;
-	C = B;
-	cout << C;
-
-	cout << "加法减法：" << endl;
-	B += C;
-	cout << B;
-	B -= C;
-	cout << B;
-	cout << B + C;
-	cout << B - C;
-	
-	cout << "直接读取元素：" << endl;
-	cout << B(1, 2) << endl << endl;
-	return 0;
-}
