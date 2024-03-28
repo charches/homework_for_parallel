@@ -4,6 +4,7 @@
 #include <sstream>
 #include <cctype>
 #include "../headers/Input.h"
+#include "../headers/Func_info.h"
 
 using namespace std;
 
@@ -11,11 +12,15 @@ Input::Input(){}
 
 void to_lower(string& str)
 {
+	Func_info::tick("to_lower");
 	for (int i = 0; i < str.length(); i++)
 		str[i] = tolower(str[i]);
+	Func_info::tick("to_lower");
 }
+
 Input::Input(const string& filename)
 {
+	Func_info::tick("Input::constructor1");
 	ifstream file(filename);
 	if (file.is_open())
 	{
@@ -40,6 +45,7 @@ Input::Input(const string& filename)
 				nr = stoi(parameter);
 			else if(type == "ncols")
 				nc = stoi(parameter);
+			Func_info::tick("Input::constructor1");
 		}
 	}
 	else {

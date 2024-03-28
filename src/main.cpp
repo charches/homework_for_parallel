@@ -1,6 +1,8 @@
 #include <iostream>
 #include "../headers/Input.h"
 #include "../headers/Matrix.h"
+#include "../headers/Func_info.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -39,5 +41,12 @@ int main()
 
         cout << "直接读取元素：" << endl;
         cout << B(1, 2) << endl << endl;
+
+	cout << setw(25) << right << "NAME";
+	cout << setw(10) << right << "CALLS";
+	cout << setw(15) << right << "TIME(Sec)";
+	cout << setw(15) << right << "AVG";
+	cout << setw(16) << right << "PER" << endl;
+	Func_info::timer_print();
         return 0;
 }
