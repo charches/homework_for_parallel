@@ -15,10 +15,13 @@ int main()
 
 	Matrix A(3, 3, "random"), B(100, 100, "random"), C(1000, 1000, "random");
 
-        A * A;
-        B * B;
-        C * C;
-        
+        if (A * A == cblas_times(A, A))
+                cout << "Same calculation result" << endl;
+        if (B * B == cblas_times(B, B))
+                cout << "Same calculation result" << endl;
+        if (C * C == cblas_times(C, C))
+                cout << "Same calculation result" << endl;
+
 	cout << setw(25) << right << "NAME";
 	cout << setw(10) << right << "CALLS";
 	cout << setw(15) << right << "TIME(Sec)";

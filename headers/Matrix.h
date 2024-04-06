@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <limits>
+#include "cblas.h"
 
 using namespace std;
 
@@ -28,10 +29,12 @@ public:
         Matrix& operator=(const Matrix& other);
         Matrix& operator+=(const Matrix& other);
         Matrix& operator-=(const Matrix& other);
-        double& operator()(const int& r, const int& c);
+        double& operator()(const int& r, const int& c) const;
+        friend bool operator==(const Matrix& A, const Matrix& B);
         friend Matrix operator+(const Matrix& A, const Matrix& B);
         friend Matrix operator-(const Matrix& A, const Matrix& B);
         friend Matrix operator*(const Matrix& A, const Matrix& B);
+        friend Matrix cblas_times(const Matrix& A, const Matrix &B);
         friend ostream& operator<<(ostream& os, const Matrix& A);
 };
 

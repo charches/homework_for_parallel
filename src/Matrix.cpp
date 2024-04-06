@@ -3,6 +3,7 @@
 #include <limits>
 #include "../headers/Matrix.h"
 #include "../headers/Func_info.h"
+#include "cblas.h"
 
 using namespace std;
 
@@ -101,6 +102,25 @@ double Matrix::mini()
 	return mini;
 }
 
+bool operator==(const Matrix& A, const Matrix& B)
+{
+	Func_info::tick("Matrix_is_equal");
+	if (A.nr != B.nr || A.nc != B.nc)
+	{
+		Func_info::tick("Matrix_is_equal");
+		return false;
+	}
+	for (int i = 0; i < A.nr; i++)
+		for (int j = 0; j < A.nc; j++)
+			if (A(i, j) != B(i, j))
+			{
+				Func_info::tick("Matrix_is_equal");
+				return false;
+			}
+	Func_info::tick("Matrix_is_equal");
+	return true;
+}
+
 Matrix& Matrix::operator=(const Matrix& other)
 {
 	Func_info::tick("Matrix::assignment");
@@ -148,7 +168,7 @@ Matrix& Matrix::operator-=(const Matrix& other)
 	return *this;
 }
 
-double& Matrix::operator()(const int& r, const int& c)
+double& Matrix::operator()(const int& r, const int& c) const
 {
 	if (r >= nr || c >= nc)
 	{
@@ -213,6 +233,23 @@ Matrix operator*(const Matrix& A, const Matrix& B)
 	return temp;
 	
 }
+
+Matrix cblas_times(const Matrix& A, const Matrix &B)
+{
+	Func_info::tick("cblas_times");
+	if (A.nc != B.nr)
+	{
+		cout << "Invalid operation!";
+		exit(0);
+	}
+	int nr = A.nr;
+	int nc = B.nc;
+	Matrix temp(nr, nc);
+	cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, nr, nc, A.nc, 1, A.d, A.nc, B.d, B.nc, 0, temp.d, temp.nc);
+	Func_info::tick("cblas_times");
+	return temp;
+}
+
 ostream& operator<<(ostream& os, const Matrix& A)
 {
 	Func_info::tick("print_Matrix");
