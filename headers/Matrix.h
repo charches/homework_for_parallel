@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include <limits>
 #include "cblas.h"
+#include "lapacke.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -18,6 +20,7 @@ public:
         Matrix();
         Matrix(const int& nrows, const int& ncols, const string& function = "zero");
         Matrix(const Matrix& other);
+        Matrix(const int& nrows, const int& ncols, const double* array, const int& length);
         ~Matrix();
 
         int nrows(void) const;
@@ -25,6 +28,8 @@ public:
         void set_zero();
         double maxi();
         double mini();
+        void diagonalise(double* eigenvalue);
+        bool is_sym();
 
         Matrix& operator=(const Matrix& other);
         Matrix& operator+=(const Matrix& other);

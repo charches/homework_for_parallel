@@ -2,7 +2,7 @@ vpath %.cpp ./src
 vpath %.h ./headers
 
 main.exe:main.o Matrix.o Input.o Func.o Func_info.o
-	g++ -o main.exe $^ -llapack -llapacke -lcblas -lrefblas -lgfortran
+	g++ -o main.exe $^ -llapacke -llapack -lcblas -lrefblas -lgfortran
 main.o:main.cpp Matrix.h Input.h Func_info.h Func.h
 	g++ -c $< -o main.o
 Matrix.o:Matrix.cpp Matrix.h Func_info.h Func.h
