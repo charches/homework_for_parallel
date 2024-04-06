@@ -34,14 +34,14 @@ int main()
         D.diagonalise(value_d.d);
         cout << value_d;
         cout << D;
-        cout << "100*100维度矩阵及其对角化：" << endl;
+        //cout << "100*100维度矩阵及其对角化：" << endl;
         E.diagonalise(value_e.d);
-        cout << value_e;
-        cout << E;
-        cout << "1000*1000维度矩阵及其对角化：" << endl;
+        //cout << value_e;
+        //cout << E;
+        //cout << "1000*1000维度矩阵及其对角化：" << endl;
         F.diagonalise(value_f.d);
-        cout << value_f;
-        cout << F;
+        //cout << value_f;
+        //cout << F;
 
 	cout << setw(25) << right << "NAME";
 	cout << setw(10) << right << "CALLS";
