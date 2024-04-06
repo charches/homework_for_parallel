@@ -12,7 +12,7 @@ private:
         int nr = 0;
         int nc = 0;
 public:
-        double** d = nullptr;
+        double* d = nullptr;
 
         Matrix();
         Matrix(const int& nrows, const int& ncols, const string& function = "zero");
@@ -31,6 +31,7 @@ public:
         double& operator()(const int& r, const int& c);
         friend Matrix operator+(const Matrix& A, const Matrix& B);
         friend Matrix operator-(const Matrix& A, const Matrix& B);
+        friend Matrix operator*(const Matrix& A, const Matrix& B);
         friend ostream& operator<<(ostream& os, const Matrix& A);
 };
 
