@@ -316,7 +316,7 @@ Matrix operator*(const Matrix& A, const Matrix& B)
 	
 }
 
-Matrix cblas_times(const Matrix& A, const Matrix &B)
+Matrix cblas_times(const Matrix& A, const Matrix &B)\\Input:two matrixs, A is a m*n matrix and B is a n*r matrix
 {
 	Func_info::tick("cblas_times");
 	if (A.nc != B.nr)
