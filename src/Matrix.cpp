@@ -241,7 +241,7 @@ bool Matrix::is_sym()
 	}
 }
 
-void Matrix::diagonalise(double* eigenvalue)
+void Matrix::diagonalise(double* eigenvalue)\\Input:an array to storage eigenvalue
 {
 	Func_info::tick("Matrix::diagonalise");
 	if(!is_sym())
