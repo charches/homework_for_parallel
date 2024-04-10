@@ -3,15 +3,16 @@
 #include "../headers/Matrix.h"
 #include "../headers/Func_info.h"
 #include <iomanip>
+#include <cmath>
 
 using namespace std;
 
 int main()
 {
-        //string filename;
-        //cin >> filename;
-        //Input input(filename);
-        //cout << input << endl;
+        string filename;
+        cin >> filename;
+        Input input(filename);
+        cout << input << endl;
 
 	Matrix A(3, 3, "random"), B(100, 100, "random"), C(1000, 1000, "random");
 
@@ -24,6 +25,9 @@ int main()
                 cout << "Same calculation result" << endl;
         cout << endl;
         
+        
+
+
         double d[] = {3.5, 0, 1.5, 
                         0, 3, 0,
                       1.5, 0, 3.5};

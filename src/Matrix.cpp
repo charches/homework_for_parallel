@@ -143,6 +143,15 @@ double Matrix::mini()
 	return mini;
 }
 
+Matrix Matrix::transpos()
+{
+	Matrix temp(nc, nr);
+	for (int i = 0; i < nr; i++)
+		for (int j = 0; j < nc; j++)
+				temp(j, i) = (*this)(i, j);
+	return temp;
+}
+
 bool operator==(const Matrix& A, const Matrix& B)
 {
 	Func_info::tick("Matrix_is_equal");
@@ -241,7 +250,7 @@ bool Matrix::is_sym()
 	}
 }
 
-void Matrix::diagonalise(double* eigenvalue)\\Input:an array to storage eigenvalue
+void Matrix::diagonalise(double* eigenvalue)//Input:an array to storage eigenvalue
 {
 	Func_info::tick("Matrix::diagonalise");
 	if(!is_sym())
@@ -316,7 +325,7 @@ Matrix operator*(const Matrix& A, const Matrix& B)
 	
 }
 
-Matrix cblas_times(const Matrix& A, const Matrix &B)\\Input:two matrixs, A is a m*n matrix and B is a n*r matrix
+Matrix cblas_times(const Matrix& A, const Matrix &B)//Input:two matrixs, A is a m*n matrix and B is a n*r matrix
 {
 	Func_info::tick("cblas_times");
 	if (A.nc != B.nr)

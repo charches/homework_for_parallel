@@ -30,7 +30,8 @@ public:
         double mini();
         void diagonalise(double* eigenvalue);
         bool is_sym();
-
+        Matrix transpos();
+        
         Matrix& operator=(const Matrix& other);
         Matrix& operator+=(const Matrix& other);
         Matrix& operator-=(const Matrix& other);
