@@ -1,9 +1,6 @@
-#include <iostream>
 #include "../headers/Input.h"
 #include "../headers/Matrix.h"
 #include "../headers/Func_info.h"
-#include <iomanip>
-#include <cmath>
 
 using namespace std;
 

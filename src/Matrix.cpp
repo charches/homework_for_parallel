@@ -1,6 +1,3 @@
-#include <iostream>
-#include <cstdlib>
-#include <limits>
 #include "../headers/Matrix.h"
 #include "../headers/Func_info.h"
 #include "cblas.h"

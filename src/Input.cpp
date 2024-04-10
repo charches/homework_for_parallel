@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <cctype>
 #include "../headers/Input.h"
 #include "../headers/Func_info.h"
 

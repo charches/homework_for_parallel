@@ -1,6 +1,5 @@
 #include "../headers/Func.h"
 #include "../headers/Func_info.h"
-#include <iomanip>
 
 using namespace std;
 

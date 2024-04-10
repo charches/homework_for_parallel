@@ -1,18 +1,29 @@
 vpath %.cpp ./src
 vpath %.h ./headers
 
+MPI = 0#0是串行编译，1是并行编译
+
+ifeq ($(MPI), 1)
+	CXX = mpicxx
+	CXXFLAGS = -D__MPI
+else
+	CXX = g++
+	CXXFLAGS =
+endif 
+
+
 main.exe:main.o Matrix.o Input.o Func.o Func_info.o
-	g++ -o main.exe $^ -llapacke -llapack -lcblas -lrefblas -lgfortran
+	$(CXX) -o main.exe $^ -llapacke -llapack -lcblas -lrefblas -lgfortran
 main.o:main.cpp Matrix.h Input.h Func_info.h Func.h
-	g++ -c $< -o main.o
+	$(CXX) $(CXXFLAGS) -c $< -o main.o
 Matrix.o:Matrix.cpp Matrix.h Func_info.h Func.h
-	g++ -c $< -o Matrix.o
+	$(CXX) $(CXXFLAGS) -c $< -o Matrix.o
 Input.o:Input.cpp Input.h Func_info.h Func.h
-	g++ -c $< -o Input.o
+	$(CXX) $(CXXFLAGS) -c $< -o Input.o
 Func.o:Func.cpp Func.h Func_info.h
-	g++ -c $< -o Func.o
+	$(CXX) $(CXXFLAGS) -c $< -o Func.o
 Func_info.o:Func_info.cpp Func.h Func_info.h
-	g++ -c $< -o Func_info.o
+	$(CXX) $(CXXFLAGS) -c $< -o Func_info.o
 
 .PHONY:clear
 clear:
