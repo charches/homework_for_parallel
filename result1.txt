@@ -1,0 +1,23 @@
+Hello from rank1
+验证矩阵乘法与cblas给出结果一致：
+Same calculation result
+
+3*3维度矩阵及其对角化：
+              2               3               5 
+
+       0.707107               0        0.707107 
+             -0              -1               0 
+      -0.707107               0        0.707107 
+
+                     NAME     CALLS      TIME(Sec)            AVG             PER
+           Matrix::is_sym         3     0.00379971     0.00126657      0.0285586%
+      Matrix::diagonalise         3        2.70343       0.901143        20.3189%
+             Matrix_times         3           9.48           3.16        71.2515%
+     Matrix::constructor2         1        2.3e-06        2.3e-06    1.72868e-05%
+              cblas_times         3        1.07171       0.357237        8.05495%
+       Matrix::destructor         6      0.0001707      2.845e-05     0.00128298%
+     Matrix::constructor1        14      0.0370479     0.00264628       0.278452%
+             print_Matrix         2       5.72e-05       2.86e-05    0.000429914%
+          Matrix_is_equal         3     0.00871383     0.00290461       0.065493%
+                 to_lower        12        5.4e-06        4.5e-07    4.05863e-05%
+      Input::constructor1         3       4.04e-05    1.34667e-05    0.000303646%

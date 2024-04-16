@@ -42,6 +42,7 @@ public:
         friend Matrix operator*(const Matrix& A, const Matrix& B);
         friend Matrix cblas_times(const Matrix& A, const Matrix &B);
         friend ostream& operator<<(ostream& os, const Matrix& A);
+        friend ofstream& operator<<(ofstream& output_file, const Matrix& A);
 };
 
 #endif

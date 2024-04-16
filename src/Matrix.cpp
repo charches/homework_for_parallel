@@ -357,4 +357,21 @@ ostream& operator<<(ostream& os, const Matrix& A)
 	return os;
 }
 
-
+ofstream& operator<<(ofstream& output_file, const Matrix& A)
+{
+	Func_info::tick("print_Matrix");
+	if (A.d == nullptr)
+	{
+		output_file << "Invalid operation!";
+		exit(0);
+	}
+	for (int i = 0; i < A.nr; i++)
+	{
+		for (int j = 0; j < A.nc; j++)
+			output_file << setw(15) << A.d[i * A.nr + j] << " ";
+		output_file << endl;
+	}
+	output_file << endl;
+	Func_info::tick("print_Matrix");
+	return output_file;
+}

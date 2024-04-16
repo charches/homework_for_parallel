@@ -1,0 +1,92 @@
+Hello
+Hello
+Hello
+Hello
+验证矩阵乘法与cblas给出结果一致：
+验证矩阵乘法与cblas给出结果一致：
+验证矩阵乘法与cblas给出结果一致：
+验证矩阵乘法与cblas给出结果一致：
+Same calculation result
+
+3*3维度矩阵及其对角化：
+              2               3               5 
+
+       0.707107               0        0.707107 
+             -0              -1               0 
+      -0.707107               0        0.707107 
+
+Same calculation result
+
+3*3维度矩阵及其对角化：
+              2               3               5 
+
+       0.707107               0        0.707107 
+             -0              -1               0 
+      -0.707107               0        0.707107 
+
+Same calculation result
+
+3*3维度矩阵及其对角化：
+              2               3               5 
+
+       0.707107               0        0.707107 
+             -0              -1               0 
+      -0.707107               0        0.707107 
+
+Same calculation result
+
+3*3维度矩阵及其对角化：
+              2               3               5 
+
+       0.707107               0        0.707107 
+             -0              -1               0 
+      -0.707107               0        0.707107 
+
+                     NAME     CALLS      TIME(Sec)            AVG             PER
+           Matrix::is_sym         3      0.0021017    0.000700567      0.0170206%
+      Matrix::diagonalise         3        2.57633       0.858777        20.8644%
+             Matrix_times         3        8.73837        2.91279        70.7677%
+     Matrix::constructor2         1        2.4e-06        2.4e-06    1.94364e-05%
+              cblas_times         3        0.99037       0.330123        8.02051%
+       Matrix::destructor         6      0.0003043    5.07167e-05     0.00246437%
+     Matrix::constructor1        14      0.0316424     0.00226017       0.256256%
+             print_Matrix         2       5.66e-05       2.83e-05    0.000458375%
+          Matrix_is_equal         3      0.0087428     0.00291427      0.0708036%
+                 to_lower        12        4.8e-06          4e-07    3.88728e-05%
+      Input::constructor1         3       3.81e-05       1.27e-05    0.000308553%
+                     NAME     CALLS      TIME(Sec)            AVG             PER
+           Matrix::is_sym         3      0.0021819      0.0007273      0.0173913%
+      Matrix::diagonalise         3        2.66408       0.888026        21.2345%
+             Matrix_times         3        8.83176        2.94392        70.3952%
+     Matrix::constructor2         1        2.3e-06        2.3e-06    1.83326e-05%
+              cblas_times         3        1.00599        0.33533        8.01844%
+       Matrix::destructor         6       0.000245    4.08333e-05     0.00195282%
+     Matrix::constructor1        14      0.0329374     0.00235267       0.262534%
+             print_Matrix         2       4.81e-05      2.405e-05     0.00038339%
+          Matrix_is_equal         3      0.0086659     0.00288863      0.0690732%
+                 to_lower        12        4.8e-06          4e-07    3.82593e-05%
+      Input::constructor1         3       4.86e-05       1.62e-05    0.000387376%
+                     NAME     CALLS      TIME(Sec)            AVG             PER
+           Matrix::is_sym         3      0.0022028    0.000734267      0.0168805%
+      Matrix::diagonalise         3         2.7687       0.922898        21.2171%
+             Matrix_times         3        9.18323        3.06108         70.373%
+     Matrix::constructor2         1        2.5e-06        2.5e-06     1.9158e-05%
+              cblas_times         3        1.05001       0.350002        8.04641%
+       Matrix::destructor         6      0.0001679    2.79833e-05     0.00128665%
+     Matrix::constructor1        14      0.0326869     0.00233478       0.250486%
+             print_Matrix         2       6.89e-05      3.445e-05    0.000527995%
+          Matrix_is_equal         3      0.0122718      0.0040906      0.0940413%
+                 to_lower        12        4.5e-06       3.75e-07    3.44844e-05%
+      Input::constructor1         3       3.41e-05    1.13667e-05    0.000261315%
+                     NAME     CALLS      TIME(Sec)            AVG             PER
+           Matrix::is_sym         3      0.0020905    0.000696833      0.0160201%
+      Matrix::diagonalise         3        2.74084       0.913615        21.0038%
+             Matrix_times         3        9.22176        3.07392        70.6688%
+     Matrix::constructor2         1        2.7e-06        2.7e-06    2.06908e-05%
+              cblas_times         3        1.03961       0.346536        7.96679%
+       Matrix::destructor         6      0.0002407    4.01167e-05     0.00184455%
+     Matrix::constructor1        14      0.0335487     0.00239634       0.257093%
+             print_Matrix         2       4.41e-05      2.205e-05     0.00033795%
+          Matrix_is_equal         3      0.0110823      0.0036941      0.0849266%
+                 to_lower        12        4.7e-06    3.91667e-07    3.60174e-05%
+      Input::constructor1         3       3.66e-05       1.22e-05    0.000280476%

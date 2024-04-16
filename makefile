@@ -1,7 +1,7 @@
 vpath %.cpp ./src
 vpath %.h ./headers
 
-MPI = 0#0是串行编译，1是并行编译
+MPI = 1#0是串行编译，1是并行编译
 
 ifeq ($(MPI), 1)
 	CXX = mpicxx

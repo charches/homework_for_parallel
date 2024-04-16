@@ -40,6 +40,8 @@ Input::Input(const string& filename)
 				nr = stoi(parameter);
 			else if(type == "ncols")
 				nc = stoi(parameter);
+			else if(type == "print_mpi_log")
+				prt_mpi_log = stoi(parameter);
 			Func_info::tick("Input::constructor1");
 		}
 	}
@@ -49,13 +51,23 @@ Input::Input(const string& filename)
 	}
 }
 
-ostream& operator<<(ostream& my_cout, const Input& input)
+ostream& operator<<(ostream& os, const Input& input)
 {
-	my_cout << "calculation: " << input.cal << endl;
-	my_cout << "matrix_type: " << input.mat_type << endl;
-	my_cout << "matrix_print: " << input.mat_prt << endl;
-	my_cout << "nrows: " << input.nr << endl;
-	my_cout << "ncols: " << input.nc << endl;
-	return my_cout;
+	os << "calculation: " << input.cal << endl;
+	os << "matrix_type: " << input.mat_type << endl;
+	os << "matrix_print: " << input.mat_prt << endl;
+	os << "nrows: " << input.nr << endl;
+	os << "ncols: " << input.nc << endl;
+	return os;
+}
+
+ofstream& operator<<(ofstream& output_file, const Input& input)
+{
+	output_file << "calculation: " << input.cal << endl;
+	output_file << "matrix_type: " << input.mat_type << endl;
+	output_file << "matrix_print: " << input.mat_prt << endl;
+	output_file << "nrows: " << input.nr << endl;
+	output_file << "ncols: " << input.nc << endl;
+	return output_file;
 }
 
