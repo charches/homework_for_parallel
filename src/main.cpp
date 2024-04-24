@@ -104,3 +104,5 @@ int main(int argc, char** argv)
         #endif
         return 0;
 }
+
+Matrix& append(const double* array, const int& length)

@@ -12,10 +12,14 @@ else
 endif 
 
 
+main_for_plus.exe:main_for_plus.o Matrix.o Input.o Func.o Func_info.o
+	$(CXX) -o main_for_plus.exe $^ -llapacke -llapack -lcblas -lrefblas -lgfortran
 main.exe:main.o Matrix.o Input.o Func.o Func_info.o
 	$(CXX) -o main.exe $^ -llapacke -llapack -lcblas -lrefblas -lgfortran
 main.o:main.cpp Matrix.h Input.h Func_info.h Func.h
 	$(CXX) $(CXXFLAGS) -c $< -o main.o
+main_for_plus.o:main_for_plus.cpp Matrix.h Input.h Func_info.h Func.h
+	$(CXX) $(CXXFLAGS) -c $< -o main_for_plus.o
 Matrix.o:Matrix.cpp Matrix.h Func_info.h Func.h
 	$(CXX) $(CXXFLAGS) -c $< -o Matrix.o
 Input.o:Input.cpp Input.h Func_info.h Func.h

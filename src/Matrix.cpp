@@ -375,3 +375,20 @@ ofstream& operator<<(ofstream& output_file, const Matrix& A)
 	Func_info::tick("print_Matrix");
 	return output_file;
 }
+
+istream& operator>>(istream& is, Matrix& A)
+{
+	int nr = A.nr;
+	int nc = A.nc;
+	for (int i = 0; i < nr; i++)
+		for (int j = 0; j < nc; j++)
+			is >> A(i, j);
+	return is;
+}
+
+Matrix& Matrix::change(const int& pos, const double* array, const int& length)
+{
+	for (int i = pos; i < min(nr * nc, pos + length); i++)
+		d[i] = array[i - pos];
+	return *this;
+}

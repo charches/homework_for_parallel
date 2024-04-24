@@ -32,6 +32,7 @@ public:
         bool is_sym();
         Matrix transpos();
         
+        Matrix& change(const int& pos, const double* array, const int& length);
         Matrix& operator=(const Matrix& other);
         Matrix& operator+=(const Matrix& other);
         Matrix& operator-=(const Matrix& other);
@@ -41,6 +42,7 @@ public:
         friend Matrix operator-(const Matrix& A, const Matrix& B);
         friend Matrix operator*(const Matrix& A, const Matrix& B);
         friend Matrix cblas_times(const Matrix& A, const Matrix &B);
+        friend istream& operator>>(istream& is, Matrix& A);
         friend ostream& operator<<(ostream& os, const Matrix& A);
         friend ofstream& operator<<(ofstream& output_file, const Matrix& A);
 };
